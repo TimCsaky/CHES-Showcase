@@ -51,6 +51,33 @@ export default function getRouter(basePath = '/') {
         }
       },
       {
+        path: '/merge',
+        name: 'Merge',
+        component: () => import(/* webpackChunkName: "email" */ '@/views/Merge.vue'),
+        redirect: 'merge/send', // redirect to first sub-tab
+        children: [
+          {
+            path: 'send',
+            name: 'MergeSend',
+            component: () => import(/* webpackChunkName: "mergesend" */ '@/views/merge/MergeSend.vue')
+          },
+          {
+            path: 'history',
+            name: 'MergeHistory',
+            component: () => import(/* webpackChunkName: "mergehistory" */ '@/views/merge/MergeHistory.vue')
+          },
+          {
+            path: 'help',
+            name: 'MergeHelp',
+            component: () => import(/* webpackChunkName: "mergehelp" */ '@/views/merge/MergeHelp.vue')
+          }
+        ],
+        meta: {
+          hasLogin: true,
+          requiresAuth: true
+        }
+      },
+      {
         path: '/404',
         alias: '*',
         name: 'NotFound',

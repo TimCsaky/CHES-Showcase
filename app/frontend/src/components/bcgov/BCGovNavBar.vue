@@ -8,6 +8,9 @@
         <li>
           <router-link :to="{ name: 'Email'}" >Email</router-link>
         </li>
+        <li>
+          <router-link :to="{ name: 'Merge'}" >Mail Merge</router-link>
+        </li>
       </ul>
     </div>
   </nav>
